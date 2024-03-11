@@ -1,3 +1,5 @@
+```C
+//LeetCode Website Thing
 struct node{
     string site;
     node *next = NULL;
@@ -6,10 +8,9 @@ struct node{
 
 class BrowserHistory {
 public:
-    node *current = NULL;
+    node *current = new node;
 
     BrowserHistory(string homepage) {
-        current = new node();
         current->site = homepage;
     }
     
@@ -41,11 +42,4 @@ public:
         return current->site;
     }
 };
-
-/**
- * Your BrowserHistory object will be instantiated and called as such:
- * BrowserHistory* obj = new BrowserHistory(homepage);
- * obj->visit(url);
- * string param_2 = obj->back(steps);
- * string param_3 = obj->forward(steps);
- */
+```
