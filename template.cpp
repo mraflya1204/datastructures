@@ -1,22 +1,21 @@
 //Made by Muhammad Rafly Abdillah @DataStructuresIUP2024
-
 //HEADERS
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
-//NODE STRUCT INIT
+//FUNCTIONS INIT
+void pushFront(int value);
+void pushBack(int value);
+void popFront();
+void popBack();
+
+//NODE INIT
 struct node{
     int value;
     node *next;
     node *prev;
 }*front, *back;
-
-//FUNCTIONS INIT
-void pushBack(int value);
-void pushFront(int value);
-void popBack();
-void popFront();
 
 //MAIN FUNCTION
 int main(){
@@ -25,11 +24,13 @@ int main(){
 
 //FUNCTIONS
 void pushFront(int value){
-    node newNode = new node;
+    node *newNode = new node();
+
+    newNode->value = value;
     newNode->next = NULL;
     newNode->prev = NULL;
 
-    if(FRONT == NULL){
+    if(front == NULL){
         front = newNode;
         back = newNode;
     }
@@ -42,17 +43,19 @@ void pushFront(int value){
 }
 
 void pushBack(int value){
-    node newNode = new node;
+    node *newNode = new node();
+
+    newNode->value = value;
     newNode->next = NULL;
     newNode->prev = NULL;
 
-    if(BACK == NULL){
+    if(back == NULL){
         front = newNode;
         back = newNode;
     }
     else{
-        newNode->prev = back;
         back->next = newNode;
+        newNode->prev = back;
         back = newNode;
     }
     return;
@@ -76,7 +79,7 @@ void popFront(){
 }
 
 void popBack(){
-    if(back == NULL){
+    if(front == NULL){
         return;
     }
     else if(front == back){
