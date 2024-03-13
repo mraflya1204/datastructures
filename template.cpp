@@ -4,18 +4,18 @@
 #include <string.h>
 #include <stdlib.h>
 
-//FUNCTIONS INIT
-void pushFront(int value);
-void pushBack(int value);
-void popFront();
-void popBack();
-
 //NODE INIT
 struct node{
     int value;
     node *next;
     node *prev;
 }*front, *back;
+
+//FUNCTIONS INIT
+void pushFront(int value);
+void pushBack(int value);
+void popFront();
+void popBack();
 
 //MAIN FUNCTION
 int main(){
